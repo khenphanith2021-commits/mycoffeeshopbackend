@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: coffeeshop-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt && python manage.py migrate"
+    startCommand: "gunicorn config.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12 # (ប្តូរដាក់ version python របស់អ្នក)

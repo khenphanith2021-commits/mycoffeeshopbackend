@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Morning Coffee Shop - Log In</title>
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 900px;
+        max-width: 100%;
+        padding: 20px;
+      }
+      .brand-section {
+        flex: 1;
+        padding-right: 50px;
+        text-align: left;
+      }
+      .brand-section h1 {
+        color: #4a3b32;
+        font-size: 3.5rem;
+        margin: 0 0 10px 0;
+        font-weight: bold;
+      }
+      .brand-section p {
+        font-size: 1.5rem;
+        color: #333;
+        line-height: 1.4;
+        margin: 0;
+      }
+      .form-section {
+        width: 396px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      input {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 12px;
+        border: 1px solid #dddfe2;
+        border-radius: 6px;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+      .login-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #4a3b32;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        font-size: 1.25rem;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 15px;
+      }
+      .forgot-link {
+        color: #4a3b32;
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 20px;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid #dadde1;
+        margin-bottom: 20px;
+      }
+      .register-hint {
+        font-size: 0.95rem;
+        color: #606770;
+        margin-bottom: 12px;
+      }
+      .register-btn {
+        background-color: #42b72a;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+      }
+      .register-btn:hover {
+        background-color: #36a420;
+      }
+      .error-box {
+        background-color: #fde8e8;
+        color: #e53e3e;
+        border: 1px solid #f8b4b4;
+        padding: 10px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="brand-section">
+        <h1>The Morning Coffee Shop</h1>
+        <p>
+          Manage daily sales of drinks and snack easily, quickly and easily.
+        </p>
+      </div>
+      <div class="form-section">
+        <form action="{% url 'custom_login' %}" method="post">
+          {% csrf_token %} {% if error %}
+          <div class="error-box">{{ error }}</div>
+          {% endif %}
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+            autofocus
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" class="login-btn">Log In</button>
+          <a href="#" class="forgot-link">Forgotten password?</a>
+          <hr />
+
+          <div class="register-hint">Don't have an account yet?</div>
+          <a href="/custom-register/" class="register-btn"
+            >Create New Account</a
+          >
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
