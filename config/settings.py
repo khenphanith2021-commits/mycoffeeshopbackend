@@ -129,9 +129,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-CORS_ALLOWED_ORIGINS = [
-    "https://khenphanith2021-commits.github.io",
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # ------------------------------------------------------------------
